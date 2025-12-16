@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma as prismaClient } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 /**
@@ -7,8 +7,15 @@ import { NextResponse } from "next/server";
  */
 export async function POST() {
   try {
+    if (!prismaClient) {
+      return NextResponse.json(
+        { error: "Database not configured" },
+        { status: 500 }
+      );
+    }
+
     // Get or create the admin user
-    const admin = await prisma.user.findFirst({
+    const admin = await prismaClient.user.findFirst({
       where: { email: "admin@lakhotiaeyecentre.com" },
       orderBy: { createdAt: "asc" }
     });
@@ -21,7 +28,7 @@ export async function POST() {
     }
 
     // Update all blogs to have the admin as author
-    const updated = await prisma.blog.updateMany({
+    const updated = await prismaClient.blog.updateMany({
       data: { authorId: admin.id }
     });
 
