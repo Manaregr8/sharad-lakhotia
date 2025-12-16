@@ -1,7 +1,5 @@
 import { ImageResponse } from "@vercel/og";
-import { prisma } from "@/lib/prisma";
-
-export const runtime = "edge";
+import { prisma as prismaClient } from "@/lib/prisma";
 
 const fontStack = 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
 
@@ -45,13 +43,13 @@ function renderImage({ title, excerpt, banner }: OgPayload) {
 }
 
 export async function GET(_req: Request, { params }: { params: { slug: string } }) {
-	if (!prisma) {
+	if (!prismaClient) {
 		console.error("Prisma client is not initialised. Cannot render OG image.");
 		return new Response("Service unavailable", { status: 503 });
 	}
 
 	try {
-		const post = await prisma.blog.findFirst({
+		const post = await prismaClient.blog.findFirst({
 			where: { slug: params.slug, published: true },
 			select: { title: true, excerpt: true, banner: true }
 		});
