@@ -1,0 +1,41 @@
+@use "@/styles/variables" as *;
+
+.header {
+  border-bottom: 1px solid rgba(215, 224, 240, 0.6);
+  background: rgba(255, 255, 255, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $color-dark;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  a,
+  button {
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}

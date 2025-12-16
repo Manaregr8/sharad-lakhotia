@@ -1,0 +1,57 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.createButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: $radius-md;
+  background: linear-gradient(115deg, $color-primary, $color-secondary);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: $shadow-soft;
+  transition: $transition-snappy;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-elevated;
+  }
+}
+
+@media (max-width: 640px) {
+  .createButton {
+    width: 100%;
+  }
+}
+
+.notice {
+  padding: 1rem 1.25rem;
+  border-radius: $radius-md;
+  background: rgba(29, 111, 184, 0.08);
+  color: $color-primary;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}

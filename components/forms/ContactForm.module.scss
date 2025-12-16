@@ -1,0 +1,94 @@
+@use "@/styles/variables" as *;
+
+.form {
+  display: grid;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 1.25rem;
+  border-radius: $radius-lg;
+  border: 1px solid rgba(215, 224, 240, 0.7);
+  box-shadow: $shadow-soft;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-weight: 600;
+    color: $color-dark;
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea,
+  select {
+    border-radius: $radius-md;
+    border: 1px solid rgba(215, 224, 240, 0.9);
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    background: rgba(255, 255, 255, 0.85);
+    color: $color-dark;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba(29, 111, 184, 0.15);
+    }
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231d6fb8' d='M1 4l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.submit {
+  justify-self: start;
+  padding: 0.9rem 2.4rem;
+  border-radius: $radius-lg;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(115deg, $color-primary, $color-secondary);
+  color: #fff;
+  box-shadow: $shadow-soft;
+  transition: $transition-snappy;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-elevated;
+  }
+}
+
+.error {
+  color: #d9534f;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #1fa77c;
+  font-weight: 600;
+}

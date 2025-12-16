@@ -1,0 +1,86 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.heroBlock {
+  display: grid;
+  gap: clamp(2rem, 6vw, 4rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+
+  span {
+    font-weight: 600;
+    color: $color-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-family: $font-display;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+  }
+
+  p {
+    color: $color-muted;
+    line-height: 1.7;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: $radius-lg;
+  padding: clamp(2rem, 4vw, 2.5rem);
+  border: 1px solid rgba(215, 224, 240, 0.7);
+  box-shadow: $shadow-soft;
+
+  ul {
+    margin-top: 1.5rem;
+    padding-left: 1.2rem;
+    color: $color-muted;
+  }
+}
+
+.subtitle {
+  color: $color-primary;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  margin-top: clamp(3rem, 6vw, 4rem);
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  article {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: $radius-md;
+    padding: 1.8rem;
+    border: 1px solid rgba(215, 224, 240, 0.6);
+
+    p {
+      color: $color-muted;
+      margin: 0;
+    }
+  }
+}
+
+.certifications {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+
+  h2 {
+    font-family: $font-display;
+  }
+
+  ul {
+    margin-top: 1.2rem;
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 1.2rem;
+    color: $color-muted;
+  }
+}

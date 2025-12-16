@@ -1,0 +1,78 @@
+.section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(29, 111, 184, 0.05) 0%, rgba(13, 79, 127, 0.05) 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1d6fb8;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0 1rem;
+    color: #1a1a1a;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.galleryWrapper {
+  margin-bottom: 2rem;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  padding: 1.5rem;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #1d6fb8 0%, #0d4f7f 100%);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(29, 111, 184, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

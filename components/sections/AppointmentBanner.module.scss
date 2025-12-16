@@ -1,0 +1,62 @@
+@use "@/styles/variables" as *;
+
+.section {
+  padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.shell {
+  border-radius: $radius-lg;
+  padding: clamp(2.5rem, 6vw, 3.5rem);
+  background: linear-gradient(115deg, rgba(29, 111, 184, 0.92), rgba(19, 179, 139, 0.92));
+  color: #fff;
+  text-align: center;
+  box-shadow: $shadow-elevated;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0 auto 2rem;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.3rem;
+  border-radius: $radius-lg;
+  font-weight: 600;
+  transition: $transition-snappy;
+}
+
+.primary {
+  background: #fff;
+  color: $color-primary;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}

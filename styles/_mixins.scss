@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+@mixin responsive-grid($minWidth: 260px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr));
+  gap: 1.5rem;
+}
+
+@mixin section-padding {
+  padding: clamp(4rem, 6vw, 6rem) 0;
+}
+
+@mixin card {
+  background: $color-surface;
+  border-radius: $radius-md;
+  box-shadow: $shadow-soft;
+  transition: $transition-snappy;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-elevated;
+  }
+}
+
+@mixin clamp-text($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

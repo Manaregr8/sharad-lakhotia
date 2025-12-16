@@ -1,0 +1,83 @@
+@use "@/styles/variables" as *;
+
+.grid {
+  columns: auto;
+  column-width: 250px;
+  column-gap: 1.5rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    column-width: 200px;
+    column-gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    columns: 1;
+    column-gap: 0;
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-md;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  background: #f0f4f8;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(29, 111, 184, 0.08);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  display: block;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(29, 111, 184, 0) 0%, rgba(29, 111, 184, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 40px rgba(29, 111, 184, 0.2);
+    transform: translateY(-6px) scale(1.02);
+
+    img {
+      transform: scale(1.08);
+    }
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+/* Staggered fade-in animations */
+@for $i from 1 through 50 {
+  .card:nth-child(#{$i}) {
+    animation: fadeInUp 0.6s ease-out #{$i * 0.04}s both;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

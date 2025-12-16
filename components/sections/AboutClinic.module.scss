@@ -1,0 +1,67 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(19, 179, 139, 0.12);
+  color: $color-secondary;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-family: $font-display;
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  margin: 0 0 1rem;
+}
+
+.intro {
+  color: $color-muted;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.points {
+  display: grid;
+  gap: 1.5rem;
+
+  article {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: $radius-md;
+    padding: 1.6rem;
+    border: 1px solid rgba(215, 224, 240, 0.7);
+    transition: $transition-snappy;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-soft;
+    }
+
+    h3 {
+      margin: 0 0 0.75rem;
+    }
+
+    p {
+      margin: 0;
+      color: $color-muted;
+      line-height: 1.6;
+    }
+  }
+}

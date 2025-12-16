@@ -1,0 +1,41 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.blogSection {
+  @include mixins.section-padding;
+  background: rgba(247, 249, 252, 0.7);
+}
+
+.blogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  span {
+    font-weight: 600;
+    color: $color-primary;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-family: $font-display;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+}
+
+.blogGrid {
+  @include mixins.responsive-grid(280px);
+}
+
+.empty {
+  margin: 0;
+  padding: 2rem 0;
+  text-align: center;
+  color: $color-muted;
+}

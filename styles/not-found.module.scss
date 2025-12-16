@@ -1,0 +1,34 @@
+@use "variables" as *;
+
+.shell {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $color-muted;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+}
+
+.backLink {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  border-radius: $radius-lg;
+  background: $color-primary;
+  color: #fff;
+  font-weight: 600;
+  transition: $transition-snappy;
+
+  &:hover {
+    background: $color-secondary;
+  }
+}

@@ -1,0 +1,44 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(29, 111, 184, 0.12);
+  color: $color-primary;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 0;
+}
+
+.viewAll {
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.grid {
+  @include mixins.responsive-grid(280px);
+}

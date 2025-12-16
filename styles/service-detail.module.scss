@@ -1,0 +1,57 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.hero {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+}
+
+.textBlock {
+  span {
+    font-weight: 600;
+    color: $color-secondary;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-family: $font-display;
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+  }
+
+  p {
+    color: $color-muted;
+    line-height: 1.7;
+  }
+}
+
+.image {
+  border-radius: $radius-lg;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: $shadow-elevated;
+}
+
+.highlights {
+  margin-top: clamp(3rem, 6vw, 4rem);
+
+  h2 {
+    font-family: $font-display;
+  }
+
+  ul {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+    padding-left: 1.2rem;
+    color: $color-muted;
+  }
+}

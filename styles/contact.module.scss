@@ -1,0 +1,76 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+
+  span {
+    font-weight: 600;
+    color: $color-secondary;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-family: $font-display;
+  }
+
+  p {
+    color: $color-muted;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+}
+
+.info {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contactDetails {
+  display: grid;
+  gap: 1rem;
+
+  dl {
+    margin: 0;
+
+    dt {
+      font-weight: 600;
+      color: $color-muted;
+    }
+
+    dd {
+      margin: 0.25rem 0 0;
+    }
+  }
+}
+
+.hours {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: $radius-md;
+  padding: 1.5rem;
+  border: 1px solid rgba(215, 224, 240, 0.7);
+}
+
+.mapWrapper {
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-soft;
+
+  iframe {
+    width: 100%;
+    height: 260px;
+    border: 0;
+  }
+}

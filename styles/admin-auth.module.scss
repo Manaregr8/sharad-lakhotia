@@ -1,0 +1,9 @@
+@use "@/styles/variables" as *;
+
+.section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 0;
+  background: linear-gradient(125deg, rgba(29, 111, 184, 0.07), rgba(19, 179, 139, 0.07));
+}

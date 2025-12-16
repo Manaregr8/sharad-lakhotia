@@ -1,0 +1,77 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+
+  span {
+    font-weight: 600;
+    color: $color-primary;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-family: $font-display;
+  }
+
+  p {
+    color: $color-muted;
+  }
+}
+
+.grid {
+  @include mixins.responsive-grid(280px);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min(420px, 100%);
+
+  input {
+    padding: 0.85rem 1rem;
+    border-radius: $radius-md;
+    border: 1px solid rgba(215, 224, 240, 0.9);
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba(29, 111, 184, 0.16);
+    }
+  }
+}
+
+.searchLabel {
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.emptyState {
+  margin: 0;
+  text-align: center;
+  color: $color-muted;
+  padding: 2rem 0;
+}
