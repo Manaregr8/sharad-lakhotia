@@ -14,11 +14,6 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['healthcare', 'medical'],
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-      {
         src: '/icon-16.png',
         sizes: '16x16',
         type: 'image/png',
