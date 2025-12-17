@@ -4,12 +4,12 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  if (!prisma) {
-    console.error("[GET /api/blogs] Prisma not available - DATABASE_URL may not be configured");
-    return NextResponse.json({ posts: [] }, { status: 503 });
-  }
-
   try {
+    if (!prisma) {
+      console.error("[GET /api/blogs] Prisma not available - DATABASE_URL may not be configured");
+      return NextResponse.json({ posts: [], error: "Database not configured" }, { status: 503 });
+    }
+
     const posts = await prisma.blog.findMany({
       include: { author: { select: { name: true } } },
       orderBy: { createdAt: "desc" }
@@ -27,9 +27,13 @@ export async function GET() {
       author: post.author
     }));
 
-    return NextResponse.json({ posts: serialised });
+    return NextResponse.json({ posts: serialised }, { status: 200 });
   } catch (error) {
-    console.error("[GET /api/blogs] Failed to fetch blogs from database", error);
-    return NextResponse.json({ posts: [] }, { status: 500 });
+    console.error("[GET /api/blogs] Error fetching blogs:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json(
+      { posts: [], error: errorMessage },
+      { status: 500 }
+    );
   }
 }
