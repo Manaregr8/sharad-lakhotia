@@ -28,12 +28,12 @@ export const getBaseUrl = (): string => {
     return `https://${process.env.VERCEL_URL.replace(/\/$/, "")}`;
   }
 
-  if (process.env.PORT) {
-    return `http://localhost:${process.env.PORT}`;
-  }
-
   if (process.env.NEXTAUTH_URL) {
     return process.env.NEXTAUTH_URL.replace(/\/$/, "");
+  }
+
+  if (process.env.PORT) {
+    return `http://localhost:${process.env.PORT}`;
   }
 
   return "http://localhost:3000";
