@@ -15,7 +15,7 @@ type BlogDetail = BlogWithAuthor & { content: string };
 
 async function getBlog(slug: string): Promise<BlogDetail | null> {
   if (!prisma) {
-    console.error("Prisma client is not initialised. Ensure DATABASE_URL is configured before building blog pages.");
+    console.error("Prisma client is not initialised. Ensure DATABASE_URL is configured.");
     return null;
   }
 
@@ -75,16 +75,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
 
 export async function generateStaticParams() {
   if (!prisma) {
-    console.warn("Prisma client unavailable during static params generation. No blog pages will be pre-rendered.");
+    console.error("Prisma client unavailable during static params generation. Ensure DATABASE_URL is set.");
     return [];
   }
 
-  const posts = await prisma.blog.findMany({
-    where: { published: true },
-    select: { slug: true }
-  });
+  try {
+    const posts = await prisma.blog.findMany({
+      where: { published: true },
+      select: { slug: true }
+    });
 
-  return posts.map((post: (typeof posts)[number]): { slug: string } => ({ slug: post.slug }));
+    return posts.map((post: (typeof posts)[number]): { slug: string } => ({ slug: post.slug }));
+  } catch (error) {
+    console.error("Failed to generate static params for blogs.", error);
+    return [];
+  }
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
