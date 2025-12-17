@@ -8,7 +8,6 @@ export const demoBlogs: BlogWithAuthor[] = [
     tags: ["vision", "surgery", "lasik"],
     published: true,
     excerpt: "A comprehensive guide to laser-assisted vision correction and what to expect before, during, and after the procedure.",
-    content: `<h2>What is LASIK?</h2><p>LASIK is a safe and effective laser eye surgery designed to correct vision problems such as nearsightedness, farsightedness, and astigmatism.</p>`,
     createdAt: new Date("2025-12-15").toISOString(),
     slug: "understanding-lasik-is-it-right-for-you",
     author: { name: "Dr. Sharad Lakhotia" }
@@ -20,7 +19,6 @@ export const demoBlogs: BlogWithAuthor[] = [
     tags: ["cataract", "surgery", "eye health"],
     published: true,
     excerpt: "Discover how our cataract specialists use the latest technology to restore clarity and protect your long-term vision.",
-    content: `<h2>Advanced cataract solutions</h2><p>Cataracts develop gradually and cause clouding of the eye's natural lens.</p>`,
     createdAt: new Date("2025-12-14").toISOString(),
     slug: "modern-cataract-care-from-diagnosis-to-recovery",
     author: { name: "Dr. Sharad Lakhotia" }
@@ -32,7 +30,6 @@ export const demoBlogs: BlogWithAuthor[] = [
     tags: ["pediatrics", "vision", "prevention"],
     published: true,
     excerpt: "Early detection of vision challenges keeps children learning confidently and prevents long-term complications.",
-    content: `<h2>Protecting young eyes</h2><p>Children's vision develops rapidly. Routine exams help us monitor eye alignment.</p>`,
     createdAt: new Date("2025-12-13").toISOString(),
     slug: "why-routine-pediatric-eye-exams-matter",
     author: { name: "Dr. Sharad Lakhotia" }
