@@ -1,28 +1,34 @@
 import BlogCard, { type BlogWithAuthor } from "@/components/cards/BlogCard";
+import { prisma } from "@/lib/prisma";
 import styles from "@/styles/home.module.scss";
-import { getBaseUrl } from "@/lib/utils";
 
 async function fetchLatestBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: boolean }> {
-  const baseUrl = getBaseUrl();
+  if (!prisma) {
+    console.error("[BlogSection] Prisma not available - DATABASE_URL may not be configured");
+    return { blogs: [], errored: true };
+  }
 
   try {
-    const response = await fetch(`${baseUrl}/api/blogs`, {
-      cache: "no-store"
+    const posts = await prisma.blog.findMany({
+      where: { published: true },
+      include: { author: { select: { name: true } } },
+      orderBy: { createdAt: "desc" },
+      take: 3
     });
 
-    if (!response.ok) {
-      console.error("[BlogSection] Unexpected response when loading blogs", response.statusText);
-      return { blogs: [], errored: true };
-    }
+    const formatted = posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+      slug: post.slug,
+      banner: post.banner,
+      excerpt: post.excerpt,
+      tags: post.tags,
+      createdAt: post.createdAt,
+      published: post.published,
+      author: post.author
+    }));
 
-    const data = (await response.json()) as { posts?: BlogWithAuthor[] };
-    console.log("[BlogSection] /api/blogs response", data);
-
-    const sorted = (data.posts ?? []).sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
-
-    return { blogs: sorted.slice(0, 3), errored: false };
+    return { blogs: formatted, errored: false };
   } catch (error) {
     console.error("[BlogSection] Failed to load blogs", error);
     return { blogs: [], errored: true };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import BlogListing from "@/components/sections/BlogListing";
 import { type BlogWithAuthor } from "@/components/cards/BlogCard";
-import { getBaseUrl } from "@/lib/utils";
+import { prisma } from "@/lib/prisma";
 import styles from "@/styles/blog.module.scss";
 
 export const metadata: Metadata = {
@@ -12,26 +12,31 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 async function fetchAllBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: boolean }> {
-  const baseUrl = getBaseUrl();
+  if (!prisma) {
+    console.error("[BlogPage] Prisma not available - DATABASE_URL may not be configured");
+    return { blogs: [], errored: true };
+  }
 
   try {
-    const response = await fetch(`${baseUrl}/api/blogs`, {
-      cache: "no-store"
+    const posts = await prisma.blog.findMany({
+      where: { published: true },
+      include: { author: { select: { name: true } } },
+      orderBy: { createdAt: "desc" }
     });
 
-    if (!response.ok) {
-      console.error("[BlogPage] Unexpected response when loading blogs", response.statusText);
-      return { blogs: [], errored: true };
-    }
+    const formatted = posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+      slug: post.slug,
+      banner: post.banner,
+      excerpt: post.excerpt,
+      tags: post.tags,
+      createdAt: post.createdAt,
+      published: post.published,
+      author: post.author
+    }));
 
-    const data = (await response.json()) as { posts?: BlogWithAuthor[] };
-    console.log("[BlogPage] /api/blogs response", data);
-
-    const sorted = (data.posts ?? []).sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
-
-    return { blogs: sorted, errored: false };
+    return { blogs: formatted, errored: false };
   } catch (error) {
     console.error("[BlogPage] Failed to load blogs", error);
     return { blogs: [], errored: true };
