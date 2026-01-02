@@ -10,7 +10,7 @@ export default function NotFound() {
           We couldn't find the page you're looking for. It may have been moved or deleted.
           Let's get you back to finding the eye care you need.
         </p>
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+        <div style={{ width:'100%',display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap', justifyContent:'center',alignItems:'center' }}>
           <Link href="/" className={styles.backLink}>
             Return home
           </Link>

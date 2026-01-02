@@ -67,6 +67,9 @@ export default function ContactPage() {
                 Faridabad
               </p>
             </div>
+          </div>
+          <div className={styles.rightCol}>
+            <ContactForm />
             <div className={styles.hours}>
               <h3>Clinic hours</h3>
               <p>
@@ -78,14 +81,12 @@ export default function ContactPage() {
             <div className={styles.mapWrapper}>
               <iframe
                 title="Lakhotia Eye Centre location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d77.2!3d28.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMxJzEyLjAiTiA3N8KwMTInMDAwIkU!5e0!3m2!1sen!2sin!4v1704986400000"
+                src="https://www.google.com/maps?q=28.5372227,77.241078&hl=en&z=16&output=embed"
                 loading="lazy"
                 allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
-          <div>
-            <ContactForm />
           </div>
         </div>
       </div>

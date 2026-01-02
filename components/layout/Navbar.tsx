@@ -52,7 +52,7 @@ export default function Navbar() {
                 </li>
               ))}
               <li className={styles.ctaWrapper}>
-                <Link href="/contact" className={styles.ctaButton}>
+                <Link href="https://wa.me/+919312255311?text=Hi%2C%20I%27m%20interested%20in%20booking%20an%20appointment%20at%20Lakhotia%20Eye%20Centre." className={styles.ctaButton}>
                   Book appointment
                 </Link>
               </li>

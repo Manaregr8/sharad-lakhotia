@@ -16,7 +16,7 @@ export const achievements: Achievement[] = [
     organization: "Medgate Today Magazine",
     year: "2011",
     description: "Selected amongst top 10 Doctors of India with cover photograph feature",
-    image: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=800&q=80",
+    image: "/sharadSirImages/Dr.-Lakhotia-adjudged-amongst-top-10-doctors-of-India-in-2011..jpg",
   },
   {
     id: "dos-president",
@@ -25,7 +25,7 @@ export const achievements: Achievement[] = [
     organization: "Delhi Ophthalmological Society",
     year: "2009-2010",
     description: "Led organization comprising of 10,000 eye surgeons across the country",
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/dos president.jpg",
   },
   {
     id: "gold-medal",
@@ -34,7 +34,7 @@ export const achievements: Achievement[] = [
     organization: "Intraocular Implant & Refractive Society",
     year: "2011",
     description: "Awarded for exceptional contribution to ophthalmology field",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    image: "/sharadSirImages/Dr. Lakhotia receiving Gold Medal from international Conference.jpg",
   },
   {
     id: "femtosecond-book",
@@ -43,7 +43,7 @@ export const achievements: Achievement[] = [
     organization: "International Medical Publication",
     year: "2015",
     description: "Joint author of world's finest book on Femtosecond laser with international faculty",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-21-Dec-2025/femtosecond laser refractive surgery.jpg",
   },
   {
     id: "best-ophthalmologist",
@@ -52,7 +52,7 @@ export const achievements: Achievement[] = [
     organization: "Medgate",
     year: "2014",
     description: "Recognized as the leading ophthalmologist in the Delhi NCR region",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
+    image: "/sharadSirImages/Dr.Lakhotia receiving Best Ophthalmologist of Delhi NCR for yr 2014 by Medgate..jpg",
   },
   {
     id: "dma-vice-president",
@@ -61,7 +61,7 @@ export const achievements: Achievement[] = [
     organization: "Delhi Medical Association",
     year: "2001-2002",
     description: "Elected Vice President representing 25,000 doctors of Delhi",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/Dma awards.jpg",
   },
   {
     id: "saarc-chairman",
@@ -79,6 +79,15 @@ export const achievements: Achievement[] = [
     organization: "Delhi Medical Association",
     year: "2011",
     description: "Honored for outstanding contribution to medical profession",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/eminent doctors awards.jpg",
+  },
+  {
+    id: "mt-india-healthcare-2013",
+    category: "award",
+    title: "9rd MT India Health Care Awards",
+    organization: "MT India",
+    year: "2013",
+    description: "Recipient of the 3rd MT India Health Care Awards 2013 for excellence in eye care.",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/9th mt award.jpg", // Placeholder, replace with actual image if available
   },
 ];

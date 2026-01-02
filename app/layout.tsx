@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Lakhotia Eye Centre"
   },
   description:
-    "Lakhotia Eye Centre, led by Dr. Sharad Lakhotia, offers 36+ years of expertise in bladeless LASIK, phaco cataract surgery, and premium IOL implantation. Pioneer in advanced eye care.",
+    "Lakhotia Eye Centre, led by Dr. Sharad Lakhotia, offers 40+ years of expertise in bladeless LASIK, phaco cataract surgery, and premium IOL implantation. Pioneer in advanced eye care.",
   keywords: [
     "eye clinic Jodhpur",
     "LASIK surgery Jodhpur",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lakhotia Eye Centre - Dr. Sharad Lakhotia",
     description:
-      "Experience world-class eye care with Dr. Sharad Lakhotia - 36+ years of surgical excellence, bladeless LASIK, advanced cataract surgery, and premium IOL solutions.",
+      "Experience world-class eye care with Dr. Sharad Lakhotia - 40+ years of surgical excellence, bladeless LASIK, advanced cataract surgery, and premium IOL solutions.",
     type: "website",
     url: "https://www.lakhotiaeyecentre.com",
     siteName: "Lakhotia Eye Centre",

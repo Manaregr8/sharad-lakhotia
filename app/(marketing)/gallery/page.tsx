@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ImageGrid from "@/components/gallery/ImageGrid";
 import AchievementPhotoGrid from "@/components/gallery/AchievementPhotoGrid";
+import SharadSirImageGrid from "@/components/gallery/SharadSirImageGrid";
+import MediaCoverageGrid from "@/components/gallery/MediaCoverageGrid";
 import styles from "@/styles/gallery.module.scss";
 
 export const metadata: Metadata = {
@@ -14,12 +16,14 @@ export default function GalleryPage() {
       <div className="container">
         <header className={styles.header}>
           <span>Success stories</span>
-          <h1>36+ years of life-changing surgical outcomes.</h1>
+          <h1>40+ years of life-changing surgical outcomes.</h1>
           <p>
             Witness the remarkable results achieved through Dr. Lakhotia's expertise in bladeless LASIK, advanced phaco 
             cataract surgery, and premium IOL implantation. Every transformation tells a story of restored vision.
           </p>
         </header>
+        <SharadSirImageGrid />
+        <MediaCoverageGrid />
         {/* <ImageGrid /> */}
 
         <section className={styles.achievementSection} aria-label="Our achievements">

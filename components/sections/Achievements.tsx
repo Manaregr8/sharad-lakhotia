@@ -83,17 +83,14 @@ export default function Achievements() {
 
         <div className={styles.stats}>
           <div className={styles.statCard}>
-            <div className={styles.statValue}>36+</div>
+            <div className={styles.statValue}>40+</div>
             <div className={styles.statLabel}>Years of Excellence</div>
           </div>
           <div className={styles.statCard}>
-            <div className={styles.statValue}>146</div>
+            <div className={styles.statValue}>20+</div>
             <div className={styles.statLabel}>Different Services</div>
           </div>
-          <div className={styles.statCard}>
-            <div className={styles.statValue}>388</div>
-            <div className={styles.statLabel}>Blood Donations</div>
-          </div>
+
           <div className={styles.statCard}>
             <div className={styles.statValue}>10000+</div>
             <div className={styles.statLabel}>Satisfied Patients</div>

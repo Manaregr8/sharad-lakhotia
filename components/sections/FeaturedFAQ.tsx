@@ -38,10 +38,22 @@ export default function FeaturedFAQ() {
         </div>
 
         <div className={styles.cta}>
-          <ContactFormModal />
-          <Link href="/faq" className={styles.ctaButton}>
+          <a
+            href="https://wa.me/+919312255311?text=Hi,%20I%20have%20a%20question%20about%20eye%20care%20at%20Lakhotia%20Eye%20Centre."
+            className={styles.ctaButton}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ask on WhatsApp
+          </a>
+          <a
+            href="https://wa.me/+919312255311?text=Hi,%20I%20want%20to%20view%20all%20FAQs%20about%20Lakhotia%20Eye%20Centre."
+            className={styles.ctaButton}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View all FAQs
-          </Link>
+          </a>
         </div>
       </div>
     </section>

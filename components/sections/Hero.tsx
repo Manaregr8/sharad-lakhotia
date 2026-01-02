@@ -18,8 +18,8 @@ export default function Hero() {
             since 1986.
           </h1>
           <p>
-            Lakhotia Eye Centre & Laser Institute combines 36+ years of surgical expertise with cutting-edge technology. 
-            Led by Dr. Sharad Lakhotia, we deliver world-class LASIK, cataract, and comprehensive eye care.
+            Lakhotia Eye Centre & Laser Institute combines 40 years of surgical expertise with cutting-edge technology. 
+            Led by Dr. Sharad Lakhotia, we deliver world-class LASIK, SMILE, ICL to premium cataract surgery and comprehensive eye care.
           </p>
           <div className={styles.actions}>
             <ContactFormModal />
