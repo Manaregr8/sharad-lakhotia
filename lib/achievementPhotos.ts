@@ -1,6 +1,8 @@
 export type AchievementPhoto = {
   src: string;
   alt: string;
+  /** CSS object-position, e.g. "center", "top", "50% 20%" */
+  objectPosition?: string;
 };
 
 export const achievementPhotos: AchievementPhoto[] = [

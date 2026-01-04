@@ -6,6 +6,8 @@ export type Achievement = {
   year: string;
   description: string;
   image: string;
+  /** CSS object-position, e.g. "center", "top", "50% 20%" */
+  objectPosition?: string;
 };
 
 export const achievements: Achievement[] = [
@@ -69,8 +71,9 @@ export const achievements: Achievement[] = [
     title: "Chairman International Relations",
     organization: "SAARC Academy of Ophthalmology",
     year: "2008",
+    objectPosition:"top",
     description: "Led international relations for South Asian eye care collaboration",
-    image: "https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=800&q=80",
+    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/international conference.jpg",
   },
   {
     id: "eminent-doctor",

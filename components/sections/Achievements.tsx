@@ -72,7 +72,12 @@ export default function Achievements() {
               </div>
 
               <div className={styles.imageWrapper}>
-                <img src={achievement.image} alt={achievement.title} loading="lazy" />
+                <img
+                  src={achievement.image}
+                  alt={achievement.title}
+                  loading="lazy"
+                  style={{ objectPosition: achievement.objectPosition ?? "center" }}
+                />
                 <div className={styles.imageOverlay} />
               </div>
 

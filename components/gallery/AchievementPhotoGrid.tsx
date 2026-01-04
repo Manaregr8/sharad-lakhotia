@@ -12,7 +12,15 @@ export default function AchievementPhotoGrid({ limit }: AchievementPhotoGridProp
     <div className={styles.grid}>
       {photos.map((photo) => (
         <div key={photo.src} className={styles.card}>
-          <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" width={500} height={500} />
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            decoding="async"
+            width={500}
+            height={500}
+            style={{ objectPosition: photo.objectPosition ?? "center" }}
+          />
         </div>
       ))}
     </div>

@@ -5,11 +5,11 @@ const footerLinks = [
   {
     title: "Services",
     items: [
-      { label: "Bladeless LASIK", href: "/services/bladeless-lasik" },
+      { label: "Bladeless LASIK", href: "/services/lasik-surgery" },
       { label: "Cataract Surgery", href: "/services/cataract-surgery" },
-      { label: "Retina Care", href: "/services/retina-care" },
-      { label: "All Services", href: "/services" }
-    ]
+      { label: "Retina Care", href: "/services/retina-clinic" },
+      { label: "All Services", href: "/services" },
+    ],
   },
   {
     title: "Clinic",
@@ -17,16 +17,16 @@ const footerLinks = [
       { label: "About Dr. Lakhotia", href: "/about" },
       { label: "Gallery", href: "/gallery" },
       { label: "Blog", href: "/blog" },
-      { label: "FAQ", href: "/faq" }
-    ]
+      { label: "FAQ", href: "/faq" },
+    ],
   },
   {
     title: "Connect",
     items: [
       { label: "Book Appointment", href: "/contact" },
-      { label: "Contact", href: "/contact" }
-    ]
-  }
+      { label: "Contact", href: "/contact" },
+    ],
+  },
 ];
 
 export default function Footer() {

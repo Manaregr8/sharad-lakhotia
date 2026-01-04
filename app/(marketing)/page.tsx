@@ -46,10 +46,11 @@ textAlign:'center'
       <ServicesOverview />
       <Testimonials />
       <Suspense fallback={<BlogSectionSkeleton />}>
+          <GalleryPreview/>
         <BlogSection />
       </Suspense>
       <YouTubeSection />
-      <InstagramSection />
+
       <section className={styles.section}>
       <div className="container">
         <header className={styles.header}>
@@ -63,9 +64,10 @@ textAlign:'center'
         <SharadSirImageGrid />
       </div>
     </section>
-    <GalleryPreview/>
+
       <FeaturedFAQ />
       <AppointmentBanner />
+            <InstagramSection />
     </>
   );
 }

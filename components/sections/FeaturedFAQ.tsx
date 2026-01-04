@@ -47,9 +47,9 @@ export default function FeaturedFAQ() {
             Ask on WhatsApp
           </a>
           <a
-            href="https://wa.me/+919312255311?text=Hi,%20I%20want%20to%20view%20all%20FAQs%20about%20Lakhotia%20Eye%20Centre."
+            href="/faq"
             className={styles.ctaButton}
-            target="_blank"
+
             rel="noopener noreferrer"
           >
             View all FAQs
