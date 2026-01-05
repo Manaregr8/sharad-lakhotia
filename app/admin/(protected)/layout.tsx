@@ -16,6 +16,10 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
     redirect("/admin/login");
   }
 
+  if (session.user?.email !== "admin@lakhotiaeyecentre.com") {
+    redirect("/");
+  }
+
   return (
     <div className={styles.wrapper}>
       <AdminNav />

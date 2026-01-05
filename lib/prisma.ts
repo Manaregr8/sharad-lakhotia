@@ -7,7 +7,9 @@ const globalForPrisma = globalThis as unknown as {
 let prismaClient: PrismaClient | undefined;
 let prismaInitError: Error | undefined;
 
-if (!process.env.DATABASE_URL) {
+const databaseUrl = process.env.DATABASE_URL_APP ?? process.env.DATABASE_URL;
+
+if (!databaseUrl) {
   prismaInitError = new Error("DATABASE_URL is not defined");
   if (process.env.NODE_ENV === "development") {
     console.warn("DATABASE_URL is not defined. Falling back to demo content.");
@@ -17,6 +19,9 @@ if (!process.env.DATABASE_URL) {
     prismaClient =
       globalForPrisma.prisma ??
       new PrismaClient({
+        datasources: {
+          db: { url: databaseUrl },
+        },
         log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
       });
 

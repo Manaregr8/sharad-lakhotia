@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
+import { withRlsContext } from "@/lib/rls";
+import { authOptions } from "@/lib/auth";
 import { type BlogWithAuthor } from "@/components/cards/BlogCard";
 import AdminBlogList from "@/components/admin/AdminBlogList";
 import styles from "@/styles/admin-blogs.module.scss";
@@ -13,16 +16,20 @@ export const metadata: Metadata = {
 type AdminBlog = BlogWithAuthor & { published: boolean };
 
 async function getAllBlogs(): Promise<{ posts: AdminBlog[]; errored: boolean }> {
+  const session = await getServerSession(authOptions as any);
+
   if (!prisma) {
     console.error("Prisma client is not initialised. Admin blog listing requires a configured database.");
     return { posts: [], errored: true };
   }
 
   try {
-    const posts = await prisma.blog.findMany({
-      include: { author: { select: { name: true } } },
-      orderBy: { createdAt: "desc" }
-    });
+    const posts = await withRlsContext(prisma, session as any, (tx) =>
+      tx.blog.findMany({
+        include: { author: { select: { name: true } } },
+        orderBy: { createdAt: "desc" }
+      })
+    );
 
     const formatted = posts.map((post): AdminBlog => ({
       id: post.id,

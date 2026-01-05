@@ -1,5 +1,8 @@
 import { prisma as prismaClient } from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { withRlsContext } from "@/lib/rls";
 
 /**
  * This endpoint fixes blog authors to Dr. Sharad Lakhotia
@@ -7,6 +10,15 @@ import { NextResponse } from "next/server";
  */
 export async function POST() {
   try {
+    const session = (await getServerSession(authOptions as any)) as any;
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (session?.user?.email !== "admin@lakhotiaeyecentre.com") {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     if (!prismaClient) {
       return NextResponse.json(
         { error: "Database not configured" },
@@ -28,9 +40,11 @@ export async function POST() {
     }
 
     // Update all blogs to have the admin as author
-    const updated = await prismaClient.blog.updateMany({
-      data: { authorId: admin.id }
-    });
+    const updated = await withRlsContext(prismaClient, session, (tx) =>
+      tx.blog.updateMany({
+        data: { authorId: admin.id }
+      })
+    );
 
     return NextResponse.json({
       success: true,

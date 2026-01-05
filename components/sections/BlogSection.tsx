@@ -11,7 +11,6 @@ async function fetchLatestBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: b
   try {
     const posts = await prisma.blog.findMany({
       where: { published: true },
-      include: { author: { select: { name: true } } },
       orderBy: { createdAt: "desc" },
       take: 3
     });
@@ -25,7 +24,7 @@ async function fetchLatestBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: b
       tags: post.tags,
       createdAt: post.createdAt,
       published: post.published,
-      author: post.author
+      author: { name: "Dr. Sharad Lakhotia" }
     }));
 
     return { blogs: formatted, errored: false };

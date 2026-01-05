@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { compare } from "bcryptjs";
 import { prisma } from "./prisma";
+import { withRlsContext } from "./rls";
 
 export const authOptions: NextAuthOptions = {
   ...(prisma ? { adapter: PrismaAdapter(prisma) } : {}),
@@ -29,9 +30,16 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Database connection is not configured");
         }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email }
-        });
+        // Set RLS context using the provided email so the DB can decide whether
+        // this email is permitted to access the User table.
+        const user = await withRlsContext(
+          prisma,
+          { user: { email: credentials.email } } as any,
+          (tx) =>
+            tx.user.findUnique({
+              where: { email: credentials.email }
+            })
+        );
 
         if (!user) {
           throw new Error("Invalid email or password");

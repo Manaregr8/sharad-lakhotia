@@ -11,7 +11,7 @@ export async function GET() {
     }
 
     const posts = await prisma.blog.findMany({
-      include: { author: { select: { name: true } } },
+      where: { published: true },
       orderBy: { createdAt: "desc" }
     });
 
@@ -24,7 +24,7 @@ export async function GET() {
       tags: post.tags,
       createdAt: post.createdAt.toISOString(),
       published: post.published,
-      author: post.author
+      author: { name: "Dr. Sharad Lakhotia" }
     }));
 
     return NextResponse.json({ posts: serialised }, { status: 200 });

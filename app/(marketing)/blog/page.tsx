@@ -20,7 +20,6 @@ async function fetchAllBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: bool
   try {
     const posts = await prisma.blog.findMany({
       where: { published: true },
-      include: { author: { select: { name: true } } },
       orderBy: { createdAt: "desc" }
     });
 
@@ -33,7 +32,7 @@ async function fetchAllBlogs(): Promise<{ blogs: BlogWithAuthor[]; errored: bool
       tags: post.tags,
       createdAt: post.createdAt,
       published: post.published,
-      author: post.author
+      author: { name: "Dr. Sharad Lakhotia" }
     }));
 
     return { blogs: formatted, errored: false };

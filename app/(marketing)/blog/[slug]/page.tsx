@@ -22,7 +22,6 @@ async function getBlog(slug: string): Promise<BlogDetail | null> {
   try {
     const post = await prisma.blog.findFirst({
       where: { slug, published: true },
-      include: { author: { select: { name: true } } }
     });
 
     if (!post) {
@@ -38,7 +37,7 @@ async function getBlog(slug: string): Promise<BlogDetail | null> {
       tags: post.tags,
       createdAt: post.createdAt,
       published: post.published,
-      author: post.author,
+      author: { name: "Dr. Sharad Lakhotia" },
       content: post.content
     };
   } catch (error) {
@@ -121,7 +120,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           slug: { not: post.slug },
           tags: { hasSome: post.tags }
         },
-        include: { author: { select: { name: true } } },
         orderBy: { createdAt: "desc" },
         take: 3
       });
@@ -135,7 +133,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         tags: item.tags,
         createdAt: item.createdAt,
         published: item.published,
-        author: item.author
+        author: { name: "Dr. Sharad Lakhotia" }
       }));
     } catch (error) {
       console.error("Failed to load related blogs from database.", error);
