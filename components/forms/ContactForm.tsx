@@ -36,23 +36,15 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
     setStatus("idle");
 
     try {
-      const formData = new FormData();
-      formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_API_KEY || "");
-      formData.append("name", values.name);
-      formData.append("email", values.email);
-      formData.append("phone", values.phone || "");
-      formData.append("service", values.service || "");
-      formData.append("message", values.message);
-      formData.append("from_name", "Lakhotia Eye Centre Website");
-
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(values)
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.ok) {
         setStatus("success");
         reset();
         setTimeout(() => {

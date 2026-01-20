@@ -14,6 +14,14 @@ export default function GalleryPage() {
   return (
     <section className={styles.section}>
       <div className="container">
+         <section className={styles.achievementSection} aria-label="Our achievements">
+          <header className={styles.achievementHeader}>
+            <span>Our achievements</span>
+            <h2>Our Achievements</h2>
+            <p>A glimpse of recognitions, moments, and milestones from Lakhotia Eye Centre.</p>
+          </header>
+          <AchievementPhotoGrid />
+        </section>
         <header className={styles.header}>
           <span>Success stories</span>
           <h1>40+ years of life-changing surgical outcomes.</h1>
@@ -25,15 +33,6 @@ export default function GalleryPage() {
         <SharadSirImageGrid />
         <MediaCoverageGrid />
         {/* <ImageGrid /> */}
-
-        <section className={styles.achievementSection} aria-label="Our achievements">
-          <header className={styles.achievementHeader}>
-            <span>Our achievements</span>
-            <h2>Our Achievements</h2>
-            <p>A glimpse of recognitions, moments, and milestones from Lakhotia Eye Centre.</p>
-          </header>
-          <AchievementPhotoGrid />
-        </section>
       </div>
     </section>
   );

@@ -51,19 +51,16 @@ textAlign:'center'
       </Suspense>
       <YouTubeSection />
 
-      <section className={styles.section}>
-      <div className="container">
-        <header className={styles.header}>
-          <span>Success stories</span>
-          <h1>40+ years of life-changing surgical outcomes.</h1>
-          <p>
-            Witness the remarkable results achieved through Dr. Lakhotia's expertise in bladeless LASIK, advanced phaco 
-            cataract surgery, and premium IOL implantation. Every transformation tells a story of restored vision.
-          </p>
-        </header>
-        <SharadSirImageGrid />
-      </div>
-    </section>
+     <section className={styles.achievementSection} aria-label="Our achievements"
+     style={{padding:"10px 10px"}}>
+              <header className={styles.achievementHeader}>
+                <span>Our achievements</span>
+                <h2>Our Achievements</h2>
+                <p>A glimpse of recognitions, moments, and milestones from Lakhotia Eye Centre.</p>
+              </header>
+              <AchievementPhotoGrid limit={10}/>
+              <a className={styles.galleryButton} href="/gallery">View More</a>
+           </section>
 
       <FeaturedFAQ />
       <AppointmentBanner />

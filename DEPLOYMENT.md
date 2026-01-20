@@ -20,6 +20,14 @@ EMAIL_SERVER_USER="your-email@gmail.com"
 EMAIL_SERVER_PASSWORD="your-app-password"
 EMAIL_FROM="noreply@lakhotiaeyecentre.com"
 
+# Optional: Google Sheets (contact form leads)
+# Deploy the Apps Script in scripts/google-sheets-webhook.gs as a Web App,
+# then paste its deployment URL here.
+GOOGLE_SHEETS_WEBHOOK_URL="https://script.google.com/macros/s/XXXX/exec"
+
+# Optional: must match CONFIG.SECRET in the Apps Script
+GOOGLE_SHEETS_WEBHOOK_SECRET="your-shared-secret"
+
 # Admin Credentials (for seeding)
 SEED_ADMIN_EMAIL="admin@lakhotiaeyecentre.com"
 SEED_ADMIN_PASSWORD="secure-password-here"
@@ -195,6 +203,20 @@ npx prisma generate
 - Monitor email delivery success rate
 - Review contact form submissions
 - Check Google Search Console for SEO issues
+
+## Google Sheets (Single Sheet for All Forms)
+
+If you want all website form submissions to go into a single Google Sheet:
+
+1. Open [scripts/google-sheets-webhook.gs](scripts/google-sheets-webhook.gs) and set:
+  - `CONFIG.SHEET_ID` (required)
+  - `CONFIG.SHEET_NAME` (optional)
+  - `CONFIG.SECRET` (optional)
+2. Deploy as a Web App (Execute as: Me).
+3. Set `GOOGLE_SHEETS_WEBHOOK_URL` (and optionally `GOOGLE_SHEETS_WEBHOOK_SECRET`) in your production env.
+
+The contact form will append rows with columns:
+timestamp, form, name, email, phone, service, message, pageUrl, userAgent.
 
 ## Support Contacts
 

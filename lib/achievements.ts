@@ -27,7 +27,7 @@ export const achievements: Achievement[] = [
     organization: "Delhi Ophthalmological Society",
     year: "2009-2010",
     description: "Led organization comprising of 10,000 eye surgeons across the country",
-    image: "/ilovepdf_images-extracted (2)/Adobe-Scan-28-Dec-2025/dos president.jpg",
+    image: "/images/professional%201/IMG20230903092632.webp",
   },
   {
     id: "gold-medal",

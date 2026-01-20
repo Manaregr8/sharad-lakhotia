@@ -13,8 +13,13 @@ const getTransporter = () =>
   });
 
 export async function sendContactEmail(data: ContactFormInput) {
-  if (!process.env.EMAIL_FROM) {
-    throw new Error("EMAIL_FROM is not configured");
+  if (
+    !process.env.EMAIL_FROM ||
+    !process.env.EMAIL_SERVER_HOST ||
+    !process.env.EMAIL_SERVER_USER ||
+    !process.env.EMAIL_SERVER_PASSWORD
+  ) {
+    return;
   }
 
   const transporter = getTransporter();
