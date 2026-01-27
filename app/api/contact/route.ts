@@ -16,6 +16,7 @@ export async function POST(req: Request) {
 
     let sheetOk = false;
     let emailOk = false;
+    const sheetsEnabled = Boolean(webhookUrl);
 
     if (webhookUrl) {
       try {
@@ -54,11 +55,23 @@ export async function POST(req: Request) {
       console.warn("Contact email send failed", e);
     }
 
-    if (!sheetOk && !emailOk) {
-      return NextResponse.json({ error: "Failed to submit message" }, { status: 502 });
+    // If Apps Script is configured, treat saving to Sheets as the primary success criteria.
+    if (sheetsEnabled && !sheetOk) {
+      return NextResponse.json(
+        { ok: false, sheetOk, emailOk, error: "Failed to save to Google Sheets" },
+        { status: 502 }
+      );
     }
 
-    return NextResponse.json({ ok: true });
+    // If Sheets is not configured, fall back to email-only mode.
+    if (!sheetsEnabled && !emailOk) {
+      return NextResponse.json(
+        { ok: false, sheetOk, emailOk, error: "Failed to submit message" },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ ok: true, sheetOk, emailOk });
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: "Failed to send message" }, { status: 500 });

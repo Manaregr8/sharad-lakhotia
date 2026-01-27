@@ -87,7 +87,7 @@ export const achievements: Achievement[] = [
   {
     id: "mt-india-healthcare-2013",
     category: "award",
-    title: "9rd MT India Health Care Awards",
+    title: "9th MT India Health Care Awards",
     organization: "MT India",
     year: "2013",
     description: "Recipient of the 3rd MT India Health Care Awards 2013 for excellence in eye care.",

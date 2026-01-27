@@ -47,7 +47,7 @@ export default function Achievements() {
             <span>Recognition & Achievements</span>
           </div>
           <h2>Awards, honors & milestones<br />shaping excellence in eye care</h2>
-          <p>Dr. Sharad Lakhotiya's dedication to advancing ophthalmology through clinical excellence, research, and community service.</p>
+          <p>Dr. Sharad Lakhotia's dedication to advancing ophthalmology through clinical excellence, research, and community service.</p>
         </div>
 
         <div className={styles.timeline}>
@@ -97,7 +97,7 @@ export default function Achievements() {
           </div>
 
           <div className={styles.statCard}>
-            <div className={styles.statValue}>10000+</div>
+            <div className={styles.statValue}>100000+</div>
             <div className={styles.statLabel}>Satisfied Patients</div>
           </div>
         </div>

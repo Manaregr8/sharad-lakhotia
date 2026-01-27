@@ -55,8 +55,8 @@ export const services: Service[] = [
     longDescription:
       "Advanced vision correction options including LASIK, C-LASIK, blade-free LASIK, SMILE, and Implantable Contact Lens (ICL). Partnership with world's best six machines in Delhi for optimal outcomes and latest technology access.",
     highlights: [
-      "Blade-free LASIK available",
-      "C-LASIK & SMILE options",
+      "Blade-free LASIK",
+      "C-LASIK & SMILE",
       "Implantable Contact Lens (ICL)",
       "Access to world-class machines"
     ],

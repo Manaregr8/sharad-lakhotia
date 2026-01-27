@@ -44,7 +44,15 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         body: JSON.stringify(values)
       });
 
-      if (response.ok) {
+      const data: unknown = await response.json().catch(() => null);
+      const ok =
+        response.ok &&
+        !!data &&
+        typeof data === "object" &&
+        "ok" in data &&
+        (data as { ok?: unknown }).ok === true;
+
+      if (ok) {
         setStatus("success");
         reset();
         setTimeout(() => {
