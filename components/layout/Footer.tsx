@@ -79,6 +79,8 @@ export default function Footer() {
             <Link href="/">Home</Link>
             <span> • </span>
             <Link href="/about">About</Link>
+            <span> • </span>
+            <Link href="/privacy">Privacy Policy</Link>
           </div>
         </div>
       </div>

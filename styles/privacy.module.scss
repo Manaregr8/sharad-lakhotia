@@ -1,0 +1,130 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mixins;
+
+.section {
+  @include mixins.section-padding;
+  min-height: 60vh;
+}
+
+.heroBlock {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  span {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba($color-primary, 0.08);
+    color: $color-primary;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+}
+
+.lastUpdated {
+  color: $color-muted;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+
+  article {
+    margin-bottom: 2.5rem;
+
+    h2 {
+      font-size: 1.75rem;
+      color: $color-dark;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid $color-primary;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      color: $color-dark;
+      margin: 1.5rem 0 0.75rem;
+      font-weight: 600;
+    }
+
+    p {
+      line-height: 1.8;
+      color: $color-muted;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 1.5rem;
+      list-style: disc;
+
+      li {
+        margin-bottom: 0.75rem;
+        line-height: 1.7;
+        color: $color-muted;
+        font-size: 1.05rem;
+
+        strong {
+          color: $color-dark;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.contactInfo {
+  background: rgba($color-primary, 0.05);
+  border-left: 4px solid $color-primary;
+  padding: 1.5rem;
+  border-radius: $radius-md;
+  margin-top: 1rem;
+
+  p {
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: $color-dark;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .content {
+    article {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p, ul li {
+        font-size: 1rem;
+      }
+    }
+  }
+}

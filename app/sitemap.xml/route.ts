@@ -20,7 +20,7 @@ export async function GET() {
     }
   }
 
-  const staticUrls = ["/", "/about", "/services", "/gallery", "/blog", "/contact"].map((path) => `${baseUrl}${path}`);
+  const staticUrls = ["/", "/about", "/services", "/gallery", "/blog", "/contact", "/privacy", "/faq"].map((path) => `${baseUrl}${path}`);
 
   const serviceUrls = services.map((s) => `${baseUrl}/services/${s.slug}`);
 
